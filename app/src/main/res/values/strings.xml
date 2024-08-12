@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">BudgetBuddy</string>
+    <string name="budget">Budget</string>
+    <string name="buddy">Buddy</string>
+    <string name="budget_buddy_mascot_logo">Budget Buddy mascot logo</string>
 </resources>
