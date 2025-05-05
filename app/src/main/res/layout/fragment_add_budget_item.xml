@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".AddBudgetItem">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="16dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:background="@android:color/white">
+
+            <TextView
+                android:id="@+id/AddBillName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/bill"
+                android:text="@string/bill"
+                android:textColor="#000000"
+                app:layout_constraintBottom_toTopOf="@+id/AddBillNameEdit"
+                app:layout_constraintEnd_toEndOf="@+id/AddBillNameEdit"
+                app:layout_constraintStart_toStartOf="@+id/AddBillNameEdit" />
+
+            <TextView
+                android:id="@+id/AddBillAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/amount"
+                android:text="@string/amount"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@+id/AddBillAmountEdit"
+                app:layout_constraintEnd_toEndOf="@+id/AddBillAmountEdit"
+                app:layout_constraintStart_toStartOf="@+id/AddBillAmountEdit" />
+
+            <TextView
+                android:id="@+id/AddBillDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/date"
+                android:text="@string/date"
+                android:textColor="#000000"
+                app:layout_constraintBottom_toTopOf="@+id/AddBillDateEdit"
+                app:layout_constraintEnd_toEndOf="@+id/AddBillDateEdit"
+                app:layout_constraintStart_toStartOf="@+id/AddBillDateEdit" />
+
+            <EditText
+                android:id="@+id/AddBillAmountEdit"
+                android:layout_width="95dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="16dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/bill_amount"
+                android:inputType="numberDecimal"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/AddBillType"
+                app:layout_constraintStart_toEndOf="@+id/AddBillNameEdit"
+                tools:ignore="TextContrastCheck" />
+
+            <AutoCompleteTextView
+                android:id="@+id/AddBillAccountEdit"
+                android:layout_width="105dp"
+                android:layout_height="48dp"
+                android:autofillHints=""
+                android:dropDownHeight="wrap_content"
+                android:ems="10"
+                android:hint="@string/bill_paid_from"
+                android:inputType="text"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/AddBillTypeEdit"
+                tools:ignore="TextContrastCheck" />
+
+            <EditText
+                android:id="@+id/AddBillNameEdit"
+                android:layout_width="120dp"
+                android:layout_height="48dp"
+                android:layout_marginBottom="16dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/name_of_bill"
+                android:inputType="text"
+                android:textColor="#000000"
+                android:textIsSelectable="true"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/AddBillAccount"
+                app:layout_constraintStart_toStartOf="@+id/AddBillAccountEdit"
+                tools:ignore="TextContrastCheck" />
+
+            <AutoCompleteTextView
+                android:id="@+id/AddBillTypeEdit"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:autofillHints="@string/type_of_bill"
+                android:completionThreshold="1"
+                android:dropDownHeight="wrap_content"
+                android:hint="@string/type_of_bill"
+                android:inputType="none"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/AddBillAccountEdit"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TextContrastCheck" />
+
+            <TextView
+                android:id="@+id/AddBillType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/type"
+                android:text="@string/type"
+                android:textColor="#000000"
+                app:layout_constraintBottom_toTopOf="@+id/AddBillTypeEdit"
+                app:layout_constraintEnd_toEndOf="@+id/AddBillTypeEdit"
+                app:layout_constraintStart_toStartOf="@+id/AddBillTypeEdit" />
+
+            <AutoCompleteTextView
+                android:id="@+id/AddBillDateEdit"
+                android:layout_width="80dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:hint="@string/due_date"
+                android:inputType="none"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:completionThreshold="1"
+                android:dropDownHeight="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/AddBillAmountEdit"
+                app:layout_constraintStart_toEndOf="@+id/AddBillAmountEdit"
+                tools:ignore="TextContrastCheck" />
+
+            <TextView
+                android:id="@+id/AddBillAccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/account"
+                android:text="@string/account"
+                android:textColor="#000000"
+                app:layout_constraintBottom_toTopOf="@+id/AddBillAccountEdit"
+                app:layout_constraintEnd_toEndOf="@+id/AddBillAccountEdit"
+                app:layout_constraintStart_toStartOf="@+id/AddBillAccountEdit" />
+
+            <Button
+                android:id="@+id/cancelButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:contentDescription="@string/cancel"
+                android:text="@string/cancel"
+                android:textColor="#212121"
+                app:layout_constraintStart_toStartOf="@+id/AddBillAccountEdit"
+                app:layout_constraintTop_toBottomOf="@+id/AddBillAccountEdit" />
+
+            <Button
+                android:id="@+id/saveButton"
+                android:layout_width="wrap_content"
+                android:layout_height="49dp"
+                android:layout_marginTop="12dp"
+                android:contentDescription="@string/save"
+                android:text="@string/save"
+                android:textColor="#212121"
+                app:layout_constraintEnd_toEndOf="@+id/AddBillDateEdit"
+                app:layout_constraintTop_toBottomOf="@+id/AddBillTypeEdit" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</ScrollView>

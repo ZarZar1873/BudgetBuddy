@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:stretchColumns="*"
+    android:padding="0dp">
+
+    <!-- Horizontal Line -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.25dp"
+        android:background="#CCCCCC"/>
+
+    <!-- Header Row -->
+    <TableRow
+        android:layout_marginBottom="0dp">
+
+        <TextView
+            android:id="@+id/incomeSource"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="start"
+            android:padding="8dp" />
+
+        <!-- Vertical Line -->
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:background="#CCCCCC"
+            android:scaleX="0.1" />
+
+        <TextView
+            android:id="@+id/incomeAmount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:padding="8dp" />
+
+        <!-- Vertical Line -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:background="#CCCCCC"
+            android:scaleX="0.1" />
+
+        <TextView
+            android:id="@+id/incomeFrequency"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.25"
+            android:gravity="start"
+            android:padding="8dp" />
+
+    </TableRow>
+    <!-- Horizontal Line -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.25dp"
+        android:background="#CCCCCC" />
+</TableLayout>

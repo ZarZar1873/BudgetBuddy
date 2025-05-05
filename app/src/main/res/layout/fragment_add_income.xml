@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="#FFFFFF"
+    android:gravity="center"
+    android:padding="0dp"
+    tools:context=".AddIncome">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/incomeSourceText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/income"
+            app:layout_constraintBottom_toTopOf="@+id/incomeSourceEditText"
+            app:layout_constraintEnd_toEndOf="@+id/incomeSourceEditText"
+            app:layout_constraintStart_toStartOf="@+id/incomeSourceEditText" />
+
+        <TextView
+            android:id="@+id/incomeAmountText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/amount"
+            app:layout_constraintBottom_toTopOf="@+id/incomeAmountEditText"
+            app:layout_constraintEnd_toEndOf="@+id/incomeAmountEditText"
+            app:layout_constraintStart_toStartOf="@+id/incomeAmountEditText" />
+
+        <TextView
+            android:id="@+id/incomeFrequencyText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/frequency"
+            app:layout_constraintBottom_toTopOf="@+id/incomeFrequencyEditText"
+            app:layout_constraintEnd_toEndOf="@+id/incomeFrequencyEditText"
+            app:layout_constraintStart_toStartOf="@+id/incomeFrequencyEditText" />
+
+        <EditText
+            android:id="@+id/incomeSourceEditText"
+            android:layout_width="100dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="8dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/name_of_income"
+            android:inputType="text"
+            android:textColor="#000000"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/incomeAmountEditText"
+            app:layout_constraintEnd_toStartOf="@+id/incomeAmountEditText"
+            tools:ignore="TextContrastCheck" />
+
+        <EditText
+            android:id="@+id/incomeAmountEditText"
+            android:layout_width="70dp"
+            android:layout_height="48dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/amount"
+            android:inputType="numberDecimal"
+            android:textColor="#000000"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TextContrastCheck" />
+
+        <AutoCompleteTextView
+            android:id="@+id/incomeFrequencyEditText"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/select_frequency"
+            android:inputType="none"
+            android:dropDownHeight="wrap_content"
+            android:textColor="#000000"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/incomeAmountEditText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/incomeAmountEditText"
+            tools:ignore="TextContrastCheck" />
+
+        <Button
+            android:id="@+id/cancelAddIncome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/cancel"
+            android:text="@string/cancel"
+            android:textColor="#212121"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/incomeSourceEditText" />
+
+        <Button
+            android:id="@+id/saveAddIncome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/save"
+            android:text="@string/save"
+            android:textColor="#212121"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/incomeFrequencyEditText" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
