@@ -79,4 +79,12 @@
     <string name="name_of_income">Name of income</string>
     <string name="add_income">Add Income</string>
     <string name="_return">Return</string>
+    <string name="todays_date">Today\'s Date</string>
+    <string name="delete_button">Delete Button</string>
+    <string name="delete_budget">Delete Budget</string>
+    <string name="delete_all_budgets">Delete All Budgets</string>
+    <string name="view_tutorial">View Tutorial</string>
+    <string name="sign_in_with_google">Sign in with Google</string>
+    <string name="next_payday">Next Payday</string>
+    <string name="money_left">Money Left</string>
 </resources>

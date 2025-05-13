@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -8,16 +9,27 @@
         android:id="@+id/budgetTypeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="240dp"
+        android:gravity="start"
         android:text="@string/budget_type"
-        app:layout_constraintEnd_toStartOf="@+id/budgetTypePercent"
+        android:textAlignment="gravity"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/budgetTypePercent"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:gravity="end"
         android:text="@string/_00_00"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0.25dp"
+        android:background="#CCCCCC"
+        app:layout_constraintLeft_toLeftOf="@+id/budgetTypeText"
+        app:layout_constraintTop_toBottomOf="@+id/budgetTypePercent"
+        tools:ignore="VisualLintBounds" />
 </androidx.constraintlayout.widget.ConstraintLayout>

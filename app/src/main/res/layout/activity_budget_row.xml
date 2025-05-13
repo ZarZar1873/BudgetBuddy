@@ -20,7 +20,7 @@
             android:layout_height="match_parent"
             android:layout_weight="0.25"
             android:background="#CCCCCC"
-            android:scaleX="0.1" />
+            android:scaleX="0.2" />
         <TextView
             android:id="@+id/billName"
             android:layout_width="75dp"
@@ -36,7 +36,7 @@
             android:layout_height="match_parent"
             android:layout_weight="0.25"
             android:background="#CCCCCC"
-            android:scaleX="0.1" />
+            android:scaleX="0.2" />
 
         <TextView
             android:id="@+id/billAmount"
@@ -54,16 +54,16 @@
             android:layout_height="match_parent"
             android:layout_weight="0.25"
             android:background="#CCCCCC"
-            android:scaleX="0.1" />
+            android:scaleX="0.2" />
 
         <TextView
             android:id="@+id/billDate"
-            android:layout_width="35dp"
+            android:layout_width="40dp"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="5dp"
-            android:textSize="14sp"
-            android:text="@string/date" />
+            android:text="@string/date"
+            android:textSize="14sp" />
 
         <!-- Vertical Line -->
         <View
@@ -71,7 +71,7 @@
             android:layout_height="match_parent"
             android:layout_weight="0.25"
             android:background="#CCCCCC"
-            android:scaleX="0.1" />
+            android:scaleX="0.2" />
 
         <TextView
             android:id="@+id/billAccount"
@@ -81,7 +81,7 @@
             android:paddingStart="4dp"
             android:paddingEnd="0dp"
             android:text="@string/account"
-            android:textSize="14sp" />
+            android:textSize="12sp" />
 
         <!-- Vertical Line -->
         <View
@@ -89,7 +89,7 @@
             android:layout_height="match_parent"
             android:layout_weight="0.25"
             android:background="#CCCCCC"
-            android:scaleX="0.1" />
+            android:scaleX="0.2" />
 
         <TextView
             android:id="@+id/billType"
@@ -99,14 +99,14 @@
             android:paddingStart="4dp"
             android:paddingEnd="0dp"
             android:text="@string/type"
-            android:textSize="14sp" />
+            android:textSize="12sp" />
         <!-- Vertical Line -->
         <View
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.25"
             android:background="#CCCCCC"
-            android:scaleX="0.1" />
+            android:scaleX="0.2" />
 
     </TableRow>
     <!-- Horizontal Line -->

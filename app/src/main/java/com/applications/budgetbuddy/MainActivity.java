@@ -23,7 +23,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity implements AddBudgetItem.AddBudgetItemListener, AddBudget.AddBudgetListener {
+public class MainActivity extends AppCompatActivity implements AddBudgetItem.AddBudgetItemListener,
+        AddBudget.AddBudgetListener, Calculate.CalculateListener, SettingsFragment.SettingsListener {
     String currentBudget;
     ArrayList<BudgetItem> budgetItems = new ArrayList<>();// Arraylist for storing budget items
     ArrayList<IncomeItem> incomeItems = new ArrayList<>(); // Arraylist for storing income items
@@ -91,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements AddBudgetItem.Add
         income.setText(String.format(Locale.US, "Total Income: $%.2f", getTotalIncomes()));
         // Set Textview to display amount leftover (income - expenses)
         TextView leftover = findViewById(R.id.leftover);
-        leftover.setText(String.format(Locale.US, "Total Income: $%.2f",
+        leftover.setText(String.format(Locale.US, "Total Leftover: $%.2f",
                 getTotalIncomes() - getTotalExpenses()));
     }
 
@@ -124,6 +125,17 @@ public class MainActivity extends AppCompatActivity implements AddBudgetItem.Add
                             "addNewBill").commit();
         });
 
+        ImageButton calculateButton = findViewById(R.id.calculate);
+        calculateButton.setOnClickListener(v -> {
+            if (currentBudget == null) {
+                Toast.makeText(MainActivity.this, "No budget selected!", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.fragment_container, Calculate.newInstance(currentBudget),
+                            "calculate").commit();
+        });
+
         ImageButton incomeButton = findViewById(R.id.income);
         incomeButton.setOnClickListener(v -> {
             if (currentBudget == null) {
@@ -133,6 +145,11 @@ public class MainActivity extends AppCompatActivity implements AddBudgetItem.Add
             getSupportFragmentManager().beginTransaction().add(R.id.fragment_container,
                     Income.newInstance(currentBudget), "income").commit();
         });
+
+        ImageButton settingsButton = findViewById(R.id.settings);
+        settingsButton.setOnClickListener(v -> getSupportFragmentManager().beginTransaction()
+                .add(R.id.fragment_container,
+                SettingsFragment.newInstance(), "setting").commit());
 
         /*
         Budget recycler view that displays all items from the budget currently selected from the
@@ -195,6 +212,55 @@ public class MainActivity extends AppCompatActivity implements AddBudgetItem.Add
         addBudgetButton.setOnClickListener(v -> getSupportFragmentManager().beginTransaction().add(R.id.fragment_container,
                 AddBudget.newInstance(listOfBudgets),"addNewBudget").commit());
 
+        ImageButton deleteBudgetButton = findViewById(R.id.deleteBudgetButton);
+        deleteBudgetButton.setOnClickListener(v -> {
+            if (currentBudget == null) {
+                Toast.makeText(this, "No budget selected to delete!", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            // Confirm deletion
+            new AlertDialog.Builder(this)
+                    .setTitle("Delete Budget")
+                    .setMessage("Are you sure you want to delete the current budget?")
+                    .setPositiveButton("Yes", (dialog, which) -> {
+                        // Delete all budget items associated with currentBudget
+                        budgetItems = budgetItemDatabaseManager.getBudgetItemDAO().getAllBudgetItems(currentBudget);
+                        for (BudgetItem item : budgetItems) {
+                            budgetItemDatabaseManager.getBudgetItemDAO().delete(item);
+                        }
+
+                        // Update list of budgets
+                        listOfBudgets.clear();
+                        listOfBudgets.addAll(createListOfBudgets());
+
+                        // Refresh dropdown
+                        budgetDropdownAdapter.notifyDataSetChanged();
+
+                        // Select first budget if any exist
+                        if (!listOfBudgets.isEmpty()) {
+                            currentBudget = listOfBudgets.get(0);
+                            budgetDropdown.setSelection(0);
+                            loadBudgetRecyclerView();
+                            loadBudgetPercentRecyclerView();
+                        } else {
+                            currentBudget = null;
+                            // Clear the RecyclerViews when no budgets remain
+                            budgetItems.clear();
+                            incomeItems.clear();
+                            budgetRecyclerViewAdapter = new BudgetRecyclerViewAdapter(budgetItems);
+                            budgetRecyclerView.setAdapter(budgetRecyclerViewAdapter);
+
+                            budgetPercentRecyclerViewAdapter = new BudgetPercentRecycleViewAdapter(budgetItems);
+                            budgetPercentile.setAdapter(budgetPercentRecyclerViewAdapter);
+                        }
+                        setTotalTexts();
+
+                        Toast.makeText(this, "Budget deleted.", Toast.LENGTH_SHORT).show();
+                    })
+                    .setNegativeButton("No", (dialog, which) -> dialog.dismiss())
+                    .show();
+        });
 
         /*
         Back button functionality that will close a fragment if it exists, and if no fragment is
@@ -221,6 +287,37 @@ public class MainActivity extends AppCompatActivity implements AddBudgetItem.Add
         removeFragment();
         loadBudgetRecyclerView();
         loadBudgetPercentRecyclerView();
+    }
+
+    @Override
+    public void calculate(int todaysDate, int nextPayday, double moneyLeft) {
+        // get list of all budget items for the current budget
+        budgetItems = budgetItemDatabaseManager.getBudgetItemDAO().getAllBudgetItems(currentBudget);
+
+        // if the next payday is in the same month
+        if (todaysDate <= nextPayday){
+            for(BudgetItem budgetItem : budgetItems){
+                int billDate = budgetItem.getBillDate();
+                if (todaysDate <= billDate && billDate <= nextPayday){
+                    moneyLeft -= budgetItem.getBillAmount();
+                }
+            }
+        }
+        // if the next payday is in the next month
+        else {
+            for(BudgetItem budgetItem : budgetItems){
+                int billDate = budgetItem.getBillDate();
+                if(billDate > todaysDate || billDate <= nextPayday){
+                    moneyLeft -= budgetItem.getBillAmount();
+                }
+            }
+        }
+        removeAllFragments();
+        new androidx.appcompat.app.AlertDialog.Builder(this)
+                .setTitle("Spending Summary")
+                .setMessage(String.format(Locale.US, "Money left after bills: $%.2f", moneyLeft))
+                .setPositiveButton("OK", (dialog, which) -> dialog.dismiss())
+                .show();
     }
 
     @Override
@@ -451,5 +548,39 @@ public class MainActivity extends AppCompatActivity implements AddBudgetItem.Add
         currentBudget = listOfBudgets.get(listOfBudgets.size()-1);
         loadBudgetRecyclerView();
         loadBudgetPercentRecyclerView();
+    }
+
+    @Override
+    public void onDeleteAllBudgets() {
+        // Add confirmation dialog before deleting
+        new AlertDialog.Builder(this)
+                .setTitle("Confirm Deletion")
+                .setMessage("Delete ALL budgets? This cannot be undone.")
+                .setPositiveButton("Yes", (dialog, which) -> {
+                    budgetItemDatabaseManager.getBudgetItemDAO().deleteAll();
+                    loadBudgetRecyclerView();
+                    loadBudgetPercentRecyclerView();
+                    // Update list of budgets
+                    listOfBudgets.clear();
+                    listOfBudgets.addAll(createListOfBudgets());
+
+                    // Refresh dropdown
+                    budgetDropdownAdapter.notifyDataSetChanged();
+                    Toast.makeText(this, "All budgets deleted", Toast.LENGTH_SHORT).show();
+                })
+                .setNegativeButton("No", null)
+                .show();
+    }
+
+    @Override
+    public void onShowTutorial() {
+        // Launch tutorial fragment or activity (implement as needed)
+        Toast.makeText(this, "Tutorial coming soon!", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onSignInWithGoogle() {
+        // Placeholder for future Google sign-in
+        Toast.makeText(this, "Google Sign-in not yet implemented", Toast.LENGTH_SHORT).show();
     }
 }

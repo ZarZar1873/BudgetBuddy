@@ -1,0 +1,13 @@
+<!-- res/drawable/black_border.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Fill the inside with white -->
+    <solid android:color="#FFFFFF" />
+
+    <!-- Add a black border -->
+    <stroke
+        android:width="2dp"
+        android:color="#000000" />
+
+    <!-- Optional: rounded corners -->
+    <corners android:radius="8dp" />
+</shape>

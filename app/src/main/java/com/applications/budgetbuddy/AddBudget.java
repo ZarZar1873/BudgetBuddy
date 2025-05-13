@@ -1,12 +1,9 @@
 package com.applications.budgetbuddy;
-
 import android.content.Context;
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,14 +13,22 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+/*
+@Author Dominic Drury
+Adds a new budget for use by the user. Empty budgets will be deleted when the user exits the app.
+ */
 public class AddBudget extends Fragment {
 
-    ArrayList<String> listOfBudgets = new ArrayList<>();
+    ArrayList<String> listOfBudgets = new ArrayList<>(); // Array list of budgets currently saved
 
     public AddBudget() {
         // Required empty public constructor
     }
 
+    /*
+    Gets a new instance of the fragment for use that has the arraylist of all current budgets and
+    returns the fragment for further use
+     */
     public static AddBudget newInstance(ArrayList<String> listOfBudgets) {
         AddBudget fragment = new AddBudget();
         Bundle args = new Bundle();

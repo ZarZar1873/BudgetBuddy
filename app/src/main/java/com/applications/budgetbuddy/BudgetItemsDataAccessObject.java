@@ -66,7 +66,7 @@ public class BudgetItemsDataAccessObject {
                 " =?", new String[]{String.valueOf(budgetItem.get_id())}) > 0;
     }
 
-    /** @noinspection unused*/ // Deletes a single budget item given an item and returns a bool of the success
+    /** @noinspection unused, UnusedReturnValue */ // Deletes a single budget item given an item and returns a bool of the success
     public boolean delete (BudgetItem budgetItem){
         return db.delete(BudgetItemTable.TABLE_NAME, BudgetItemTable.COLUMN_ID +
                 " =?", new String[]{String.valueOf(budgetItem.get_id())}) > 0;
@@ -84,10 +84,10 @@ public class BudgetItemsDataAccessObject {
 
         // Queries for all items in the database
         Cursor cursor = db.query(BudgetItemTable.TABLE_NAME, new String[]{BudgetItemTable.COLUMN_ID,
-                BudgetItemTable.COLUMN_BUDGET,
-                BudgetItemTable.COLUMN_BILL, BudgetItemTable.COLUMN_AMOUNT,
-                BudgetItemTable.COLUMN_DATE, BudgetItemTable.COLUMN_ACCOUNT,
-                BudgetItemTable.COLUMN_TYPE}, null, null, null,
+                        BudgetItemTable.COLUMN_BUDGET,
+                        BudgetItemTable.COLUMN_BILL, BudgetItemTable.COLUMN_AMOUNT,
+                        BudgetItemTable.COLUMN_DATE, BudgetItemTable.COLUMN_ACCOUNT,
+                        BudgetItemTable.COLUMN_TYPE}, null, null, null,
                 null, null);
 
         while (cursor.moveToNext()){
@@ -144,5 +144,9 @@ public class BudgetItemsDataAccessObject {
         budgetItem.setBillAccount(cursor.getString(5));
         budgetItem.setBillType(cursor.getString(6));
         return budgetItem;
+    }
+
+    public void deleteAll() {
+        db.delete(BudgetItemTable.TABLE_NAME, null, null);
     }
 }
