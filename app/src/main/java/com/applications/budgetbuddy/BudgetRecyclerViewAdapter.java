@@ -90,11 +90,11 @@ public class BudgetRecyclerViewAdapter extends RecyclerView.Adapter<BudgetRecycl
             holder.billAccount.setText(budgetItem.billAccount);
             holder.billType.setText(budgetItem.billType);
 
-            holder.billName.setGravity(Gravity.START);
-            holder.billAmount.setGravity(Gravity.END);
-            holder.billDate.setGravity(Gravity.CENTER);
-            holder.billAccount.setGravity(Gravity.START);
-            holder.billType.setGravity(Gravity.START);
+            holder.billName.setGravity(Gravity.START | Gravity.CENTER_VERTICAL);
+            holder.billAmount.setGravity(Gravity.END | Gravity.CENTER_VERTICAL);
+            holder.billDate.setGravity(Gravity.CENTER | Gravity.CENTER_VERTICAL);
+            holder.billAccount.setGravity(Gravity.START | Gravity.CENTER_VERTICAL);
+            holder.billType.setGravity(Gravity.START | Gravity.CENTER_VERTICAL);
 
             holder.itemView.setOnLongClickListener(v -> {
                 if (longClickListener != null) {

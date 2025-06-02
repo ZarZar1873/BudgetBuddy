@@ -1,5 +1,6 @@
 package com.applications.budgetbuddy;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -574,8 +575,9 @@ public class MainActivity extends AppCompatActivity implements AddBudgetItem.Add
 
     @Override
     public void onShowTutorial() {
-        // Launch tutorial fragment or activity (implement as needed)
-        Toast.makeText(this, "Tutorial coming soon!", Toast.LENGTH_SHORT).show();
+        // Launch tutorial activity
+        Intent intent = new Intent(this, Tutorial.class);
+        startActivity(intent);
     }
 
     @Override

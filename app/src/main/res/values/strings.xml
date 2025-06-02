@@ -87,4 +87,8 @@
     <string name="sign_in_with_google">Sign in with Google</string>
     <string name="next_payday">Next Payday</string>
     <string name="money_left">Money Left</string>
+    <string name="tutorial_images">Tutorial Images</string>
+    <string name="back_arrow">back arrow</string>
+    <string name="next_button">Next button</string>
+    <string name="calculate_description">Calculates the money you have left after bills, showing your available spending balance before your next paycheck.</string>
 </resources>

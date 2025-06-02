@@ -13,7 +13,7 @@
         android:layout_width="90dp"
         android:layout_height="65dp"
         android:contentDescription="@string/budget_buddy_mascot_logo"
-        android:src="@drawable/budgetbuddymascot"
+        android:src="@mipmap/budgetbuddymascot"
         app:layout_constraintBottom_toBottomOf="@+id/appLogoBudget"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -179,8 +179,9 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/budgetPercentile"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/budgetPercentTitle" />
 

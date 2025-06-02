@@ -21,14 +21,16 @@
             android:layout_weight="0.25"
             android:background="#CCCCCC"
             android:scaleX="0.2" />
+
         <TextView
             android:id="@+id/billName"
-            android:layout_width="75dp"
+            android:layout_width="85dp"
             android:layout_height="wrap_content"
-            android:gravity="start"
+            android:gravity="start|center_vertical"
             android:padding="8dp"
-            android:textSize="14sp"
-            android:text="@string/bill" />
+            android:text="@string/bill"
+            android:textAlignment="gravity"
+            android:textSize="12sp" />
 
         <!-- Vertical Line -->
         <View
@@ -40,13 +42,14 @@
 
         <TextView
             android:id="@+id/billAmount"
-            android:layout_width="70dp"
-            android:layout_height="wrap_content"
-            android:gravity="end"
+            android:layout_width="65dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|end"
             android:paddingStart="0dp"
             android:paddingEnd="4dp"
-            android:textSize="14sp"
-            android:text="@string/amount" />
+            android:text="@string/amount"
+            android:textAlignment="gravity"
+            android:textSize="12sp" />
 
         <!-- Vertical Line -->
         <View
@@ -59,11 +62,12 @@
         <TextView
             android:id="@+id/billDate"
             android:layout_width="40dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:gravity="center"
             android:padding="5dp"
             android:text="@string/date"
-            android:textSize="14sp" />
+            android:textAlignment="gravity"
+            android:textSize="12sp" />
 
         <!-- Vertical Line -->
         <View
@@ -76,11 +80,12 @@
         <TextView
             android:id="@+id/billAccount"
             android:layout_width="70dp"
-            android:layout_height="wrap_content"
-            android:gravity="start"
+            android:layout_height="match_parent"
+            android:gravity="start|center_vertical"
             android:paddingStart="4dp"
             android:paddingEnd="0dp"
             android:text="@string/account"
+            android:textAlignment="gravity"
             android:textSize="12sp" />
 
         <!-- Vertical Line -->
@@ -94,11 +99,12 @@
         <TextView
             android:id="@+id/billType"
             android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:gravity="start"
+            android:layout_height="match_parent"
+            android:gravity="start|center_vertical"
             android:paddingStart="4dp"
             android:paddingEnd="0dp"
             android:text="@string/type"
+            android:textAlignment="gravity"
             android:textSize="12sp" />
         <!-- Vertical Line -->
         <View
