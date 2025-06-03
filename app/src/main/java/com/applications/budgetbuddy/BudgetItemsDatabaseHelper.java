@@ -4,6 +4,10 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+/*
+@Author Dominic Drury
+Database helper for budget buddy that manages both budget items and income items
+ */
 public class BudgetItemsDatabaseHelper extends SQLiteOpenHelper {
     final static String DATABASE_NAME = "BudgetItems.db";
     final static int DATABASE_VERSION = 3;

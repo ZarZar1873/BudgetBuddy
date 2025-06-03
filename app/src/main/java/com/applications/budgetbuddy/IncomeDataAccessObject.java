@@ -6,6 +6,10 @@ import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
 
+/*
+@Author Dominic Drury
+class for accessing income items from the database
+ */
 /** @noinspection UnusedReturnValue, unused */
 public class IncomeDataAccessObject {
     private final SQLiteDatabase db;

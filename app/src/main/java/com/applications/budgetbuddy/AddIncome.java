@@ -17,6 +17,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+/*
+@Author Dominic Drury
+Fragment for adding an income to a budget
+ */
 public class AddIncome extends Fragment {
     private final String TAG = "testing";
     private static final String BUDGET_NAME = null;

@@ -2,6 +2,10 @@ package com.applications.budgetbuddy;
 
 import androidx.annotation.NonNull;
 
+/*
+@Author Dominic Drury
+Budget Item object class for managing budget items
+ */
 public class BudgetItem {
     public long _id;
 

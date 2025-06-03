@@ -19,6 +19,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.Locale;
 
+/*
+@Author Dominic Drury
+Income object class for managing incomes
+ */
 public class Income extends Fragment implements AddIncome.AddIncomeListener {
     MainActivity mainActivity;
     private static final String BUDGET_NAME = "blankBudgetName";

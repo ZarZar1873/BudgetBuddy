@@ -2,6 +2,10 @@ package com.applications.budgetbuddy;
 
 import androidx.annotation.NonNull;
 
+/*
+@Author Dominic Drury
+Income object class
+ */
 public class IncomeItem {
     public long _id;
 

@@ -3,6 +3,10 @@ package com.applications.budgetbuddy;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
+/*
+@Author Dominic Drury
+Database manager for budget buddy. Handles both budget items and income items
+ */
 public class BudgetItemDatabaseManager {
     Context context;
     SQLiteDatabase db;

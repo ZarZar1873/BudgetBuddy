@@ -20,16 +20,26 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import android.content.SharedPreferences;
 
 import java.util.ArrayList;
 import java.util.Locale;
 
+/*
+@Author Dominic Drury
+Main activity that manages most of the app functionality. Relies heavily on fragments and implemented
+listeners
+ */
 public class MainActivity extends AppCompatActivity implements AddBudgetItem.AddBudgetItemListener,
         AddBudget.AddBudgetListener, Calculate.CalculateListener, SettingsFragment.SettingsListener {
     String currentBudget;
     ArrayList<BudgetItem> budgetItems = new ArrayList<>();// Arraylist for storing budget items
     ArrayList<IncomeItem> incomeItems = new ArrayList<>(); // Arraylist for storing income items
     ArrayList<String> listOfBudgets = new ArrayList<>(); // Arraylist for storing list of budgets
+
+    // Shared preference variables for first time app launch
+    private static final String PREFS_NAME = "BudgetBuddyPrefs";
+    private static final String PREF_FIRST_LAUNCH = "FirstLaunch";
 
     // booleans for tracking asc and des sorting
     private boolean sortNameAsc = true;
@@ -100,13 +110,29 @@ public class MainActivity extends AppCompatActivity implements AddBudgetItem.Add
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+
+        //Access to shared preference variables
+        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        boolean isFirstLaunch = prefs.getBoolean(PREF_FIRST_LAUNCH, true);
+
+        if (isFirstLaunch) {
+            // Update the flag so next time it won't show tutorial
+            prefs.edit().putBoolean(PREF_FIRST_LAUNCH, false).apply();
+
+            // Start TutorialActivity
+            Intent intent = new Intent(this, Tutorial.class);
+            startActivity(intent);
+            finish();
+            return;
+        } else {
+            setContentView(R.layout.activity_main);
+            EdgeToEdge.enable(this);
+            ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+                Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+                v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+                return insets;
+            });
+        }
 
         // Database manager for budget items
         budgetItemDatabaseManager = new BudgetItemDatabaseManager(this);
@@ -571,6 +597,11 @@ public class MainActivity extends AppCompatActivity implements AddBudgetItem.Add
                 })
                 .setNegativeButton("No", null)
                 .show();
+    }
+
+    @Override
+    public void onSettingsReturnButton() {
+        removeAllFragments();
     }
 
     @Override

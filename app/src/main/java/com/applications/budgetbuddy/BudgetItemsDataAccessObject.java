@@ -6,7 +6,10 @@ import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
 
-// Used for querying the SQLite database
+/*
+@Author Dominic Drury
+Used for querying the SQLite database
+ */
 public class BudgetItemsDataAccessObject {
     private final SQLiteDatabase db;
 

@@ -12,6 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.Locale;
 
+/*
+@Author Dominic Drury
+Adapter for income recyclerview shown on the income screen
+ */
 public class IncomeRecyclerViewAdapter extends RecyclerView.Adapter<IncomeRecyclerViewAdapter.IncomeViewHolder>{
     ArrayList<IncomeItem> incomeItems;
     private static OnItemLongClickListener longClickListener;

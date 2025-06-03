@@ -56,10 +56,17 @@ public class AddBudget extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        // UI element initialization
         EditText AddBudgetName = view.findViewById(R.id.addBudgetEdit);
         Button saveAddBudget = view.findViewById(R.id.saveAddBudget);
         Button cancelAddBudget = view.findViewById(R.id.cancelAddBudget);
 
+        /*
+        Save button on click listener
+        gets budget name from currently selected budget
+        adds budget to list of budgets and SQL database
+        closes all fragments
+         */
         saveAddBudget.setOnClickListener(v -> {
             try {
                 String budgetName = AddBudgetName.getText().toString().trim();
@@ -71,9 +78,9 @@ public class AddBudget extends Fragment {
                 Toast.makeText(getContext(), "Invalid budget name!", Toast.LENGTH_SHORT)
                         .show();
             }
-
         });
 
+        // Cancel button that closes fragments without adding anything
         cancelAddBudget.setOnClickListener(v -> addBudgetListener.cancel());
     }
 

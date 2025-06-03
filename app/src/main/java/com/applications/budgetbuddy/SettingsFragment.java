@@ -12,12 +12,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+/*
+@Author Dominic Drury
+Settings page that manages tutorial, all data deletion, and a future google sign in option.
+ */
 public class SettingsFragment extends Fragment {
 
     private SettingsListener settingsListener;
 
     public interface SettingsListener {
         void onDeleteAllBudgets();
+        void onSettingsReturnButton();
         void onShowTutorial();
         void onSignInWithGoogle(); // For future use
     }
@@ -60,10 +65,12 @@ public class SettingsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         Button tutorialButton = view.findViewById(R.id.tutorialButton);
+        Button returnButton = view.findViewById(R.id.settingsReturnButton);
         Button deleteBudgetsButton = view.findViewById(R.id.deleteBudgetsButton);
         Button signInButton = view.findViewById(R.id.signInButton); // Future use
 
         tutorialButton.setOnClickListener(v -> settingsListener.onShowTutorial());
+        returnButton.setOnClickListener(v -> settingsListener.onSettingsReturnButton());
         deleteBudgetsButton.setOnClickListener(v -> settingsListener.onDeleteAllBudgets());
         signInButton.setOnClickListener(v -> settingsListener.onSignInWithGoogle());
     }

@@ -19,6 +19,11 @@ import android.widget.Toast;
 
 import java.util.Calendar;
 
+/*
+@Author Dominic Drury
+Calculates the amount of income not dedicated to a bill given the gotten date from the device,
+a next payday gotten from the user, and the amount of money the user has in their account.
+ */
 public class Calculate extends Fragment {
     private static final String BUDGET_NAME = null;
     public String budgetName;

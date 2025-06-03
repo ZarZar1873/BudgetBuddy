@@ -4,6 +4,11 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+/*
+@Author Dominic Drury
+Manages teh tables for the budget items and for the income items. Though both tables are kept
+separate.
+ */
 public class BudgetItemTable {
     final static String TABLE_NAME = "budgetItems"; // for budget items
     final static String INCOME_TABLE_NAME = "incomeTable"; // for incomes

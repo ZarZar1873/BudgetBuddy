@@ -12,6 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.Locale;
 
+/*
+@Author Dominic Drury
+Adapter for the budget item recycler view on the main screen.
+ */
 public class BudgetRecyclerViewAdapter extends RecyclerView.Adapter<BudgetRecyclerViewAdapter.BudgetViewHolder>{
     // Array list for passing data
     ArrayList<BudgetItem> budgetItems;

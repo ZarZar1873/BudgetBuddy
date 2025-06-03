@@ -8,7 +8,7 @@
     tools:context=".Tutorial">
 
     <ImageView
-        android:id="@+id/tutorialImages"
+        android:id="@+id/tutorialImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/tutorial_images"
@@ -26,7 +26,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/left_arrow_foreground" />
+        app:srcCompat="@drawable/left_arrow_foreground"
+        tools:ignore="ImageContrastCheck" />
 
     <ImageButton
         android:id="@+id/tutorialNextButton"
@@ -36,6 +37,32 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/right_arrow_foreground" />
+        app:srcCompat="@drawable/right_arrow_foreground"
+        tools:ignore="ImageContrastCheck,RedundantDescriptionCheck" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/tutorialExitButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:backgroundTint="@android:color/holo_red_dark"
+        android:clickable="true"
+        android:contentDescription="@string/exit_tutorial"
+        android:focusable="true"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/exit_round"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/CircularShape" />
+
+    <LinearLayout
+        android:id="@+id/dotsLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"></LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

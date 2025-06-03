@@ -11,6 +11,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.Locale;
 
+/*
+@Author Dominic Drury
+Adapter for the budget percentiles shown on the main screen
+ */
 public class BudgetPercentRecycleViewAdapter extends RecyclerView.Adapter<BudgetPercentRecycleViewAdapter.BudgetPercentViewHolder> {
     // Array list for passing data of budget types
     private final ArrayList<String> billTypes;
