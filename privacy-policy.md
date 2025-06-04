@@ -1,6 +1,6 @@
 # Privacy Policy for BudgetBuddy
 
-Effective Date: [Insert today's date]
+Effective Date: 06/04/2025
 
 BudgetBuddy ("we", "our", or "us") is committed to protecting your privacy.
 
