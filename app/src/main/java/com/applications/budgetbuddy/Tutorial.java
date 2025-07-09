@@ -37,7 +37,6 @@ public class Tutorial extends AppCompatActivity {
     private int currentIndex = 0;
 
     private LinearLayout dotsLayout;
-    private ImageView[] dots;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,7 +82,7 @@ public class Tutorial extends AppCompatActivity {
 
     private void addDots(int position) {
         dotsLayout.removeAllViews();
-        dots = new ImageView[tutorialImages.length];
+        ImageView[] dots = new ImageView[tutorialImages.length];
 
         for (int i = 0; i < dots.length; i++) {
             dots[i] = new ImageView(this);

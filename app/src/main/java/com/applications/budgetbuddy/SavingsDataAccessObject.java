@@ -13,7 +13,7 @@ public class SavingsDataAccessObject {
         this.db = db;
     }
 
-    // Create savings object
+    /** @noinspection UnusedReturnValue*/ // Create savings object
     public long createSavings(SavingsItem savingsItem){
         ContentValues values = new ContentValues();
         values.put(BudgetItemTable.COLUMN_SAVINGS_BUDGET, savingsItem.getBudgetName());
@@ -52,7 +52,7 @@ public class SavingsDataAccessObject {
         return savingsItem;
     }
 
-    // Updates a single savings item and returns a bool of the success
+    /** @noinspection UnusedReturnValue*/ // Updates a single savings item and returns a bool of the success
     public boolean updateSaving (SavingsItem savingsItem){
         ContentValues values = new ContentValues();
         values.put(BudgetItemTable.COLUMN_SAVINGS_BUDGET, savingsItem.getBudgetName());
@@ -68,7 +68,7 @@ public class SavingsDataAccessObject {
                 new String[]{String.valueOf(savingsItem.get_id())}) > 0;
     }
 
-    // Deletes a single saving item given an item and returns a bool of the success
+    /** @noinspection unused*/ // Deletes a single saving item given an item and returns a bool of the success
     public boolean savingDelete (SavingsItem savingsItem){
         return db.delete(BudgetItemTable.SAVINGS_TABLE_NAME, BudgetItemTable.COLUMN_SAVINGS_ID +
                 " =?", new String[]{String.valueOf(savingsItem.get_id())}) > 0;
@@ -117,6 +117,7 @@ public class SavingsDataAccessObject {
         return savingsList;
     }
 
+    /** @noinspection unused*/
     public ArrayList<SavingsItem> getAllSavingsItems(){
         ArrayList<SavingsItem> savingsItems = new ArrayList<>();
 

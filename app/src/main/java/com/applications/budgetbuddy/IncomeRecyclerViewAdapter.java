@@ -91,6 +91,7 @@ public class IncomeRecyclerViewAdapter extends RecyclerView.Adapter<IncomeRecycl
         return incomeItems.size() + 1; // to account for the headers
     }
 
+    /** @noinspection deprecation*/
     public static class IncomeViewHolder extends RecyclerView.ViewHolder{
         // Views of income rows
         TextView incomeSource;

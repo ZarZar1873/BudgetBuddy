@@ -96,6 +96,7 @@ public class SavingsItem {
         this.billType = billType;
     }
 
+    /** @noinspection unused*/
     @NonNull
     public String oString(){
         return "BudgetItem{" +

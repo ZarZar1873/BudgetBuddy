@@ -88,17 +88,14 @@ public class Savings extends Fragment implements AddSavings.AddSavingsListener{
         });
 
         Button returnButton = view.findViewById(R.id.savingsReturnButton);
-        returnButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Fragment fragment = requireActivity().getSupportFragmentManager()
-                        .findFragmentById(R.id.fragment_container);
-                if (fragment != null) {
-                    requireActivity().getSupportFragmentManager()
-                            .beginTransaction()
-                            .remove(fragment)
-                            .commit();
-                }
+        returnButton.setOnClickListener(v -> {
+            Fragment fragment = requireActivity().getSupportFragmentManager()
+                    .findFragmentById(R.id.fragment_container);
+            if (fragment != null) {
+                requireActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .remove(fragment)
+                        .commit();
             }
         });
 
@@ -175,6 +172,7 @@ public class Savings extends Fragment implements AddSavings.AddSavingsListener{
 
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     @Override
     public void onSavingsSaved() {
         try (SQLiteDatabase db = new BudgetItemsDatabaseHelper(requireContext()).getReadableDatabase()) {
