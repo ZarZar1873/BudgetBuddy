@@ -81,6 +81,11 @@ public class BudgetItemsDataAccessObject {
                 " =?", new String[]{String.valueOf(id)}) > 0;
     }
 
+    public boolean delete (String billName){
+        return db.delete(BudgetItemTable.TABLE_NAME, BudgetItemTable.COLUMN_BILL +
+                " =?", new String[]{String.valueOf(billName)}) > 0;
+    }
+
     // Returns an array list of all of the budget items stored in the database for selected budget
     public ArrayList<BudgetItem> getAllBudgetItems(String currentBudget){
         ArrayList<BudgetItem> budgetItems = new ArrayList<>();

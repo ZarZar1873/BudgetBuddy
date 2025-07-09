@@ -101,8 +101,8 @@ public class IncomeRecyclerViewAdapter extends RecyclerView.Adapter<IncomeRecycl
             super(itemView);
 
             incomeSource = itemView.findViewById(R.id.incomeSource);
-            incomeAmount = itemView.findViewById(R.id.incomeAmount);
-            incomeFrequency = itemView.findViewById(R.id.incomeFrequency);
+            incomeAmount = itemView.findViewById(R.id.savingsAmountRowText);
+            incomeFrequency = itemView.findViewById(R.id.savingsGoalRowText);
 
             itemView.setOnLongClickListener(v -> {
                 if (longClickListener != null && getAdapterPosition() != RecyclerView.NO_POSITION) {

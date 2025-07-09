@@ -12,6 +12,8 @@ separate.
 public class BudgetItemTable {
     final static String TABLE_NAME = "budgetItems"; // for budget items
     final static String INCOME_TABLE_NAME = "incomeTable"; // for incomes
+    final static String SAVINGS_TABLE_NAME = "savingsTable"; // for savings
+
     // for budget items
     final static String COLUMN_ID = "_id";
     final static String COLUMN_BUDGET = "billBudget";
@@ -27,6 +29,16 @@ public class BudgetItemTable {
     final static String COLUMN_INCOME_SOURCE = "incomeSource"; // Salary, Side Job, etc.
     final static String COLUMN_INCOME_AMOUNT = "incomeAmount";
     final static String COLUMN_INCOME_FREQUENCY = "incomeFrequency";
+
+    // for savings
+    final static String COLUMN_SAVINGS_ID = "_id";
+    final static String COLUMN_SAVINGS_BUDGET = "savingsBudget";
+    final static String COLUMN_SAVINGS_BILL = "savingsName";
+    final static String COLUMN_SAVINGS_AMOUNT = "savingsAmount";
+    final static String COLUMN_SAVINGS_GOAL_DATE = "savingsGoalDate";
+    final static String COLUMN_SAVINGS_START_DATE = "savingsStartDate";
+    final static String COLUMN_SAVINGS_ACCOUNT = "billAccount";
+    final static String COLUMN_SAVINGS_TYPE = "billType";
 
     // Creates a string to use in the execution of a SQL command
     static public void onCreate(SQLiteDatabase db){
@@ -61,6 +73,24 @@ public class BudgetItemTable {
             db.execSQL(sb.toString());
         } catch (SQLException ex){
             Log.e("BudgetIncomeTable", "Error creating table: " + ex.getMessage());
+        }
+
+        sb.setLength(0); // Reset the string builder
+        sb.append("CREATE TABLE " + BudgetItemTable.SAVINGS_TABLE_NAME + " (");
+        sb.append(COLUMN_SAVINGS_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, ");
+        sb.append(COLUMN_SAVINGS_BUDGET + " TEXT NOT NULL, ");
+        sb.append(COLUMN_SAVINGS_BILL + " TEXT NOT NULL, ");
+        sb.append(COLUMN_SAVINGS_AMOUNT + " REAL NOT NULL, ");
+        sb.append(COLUMN_SAVINGS_GOAL_DATE + " INTEGER NOT NULL, ");
+        sb.append(COLUMN_SAVINGS_START_DATE + " INTEGER NOT NULL, ");
+        sb.append(COLUMN_SAVINGS_ACCOUNT + " TEXT NOT NULL, ");
+        sb.append(COLUMN_SAVINGS_TYPE + " TEXT NOT NULL)");
+
+        // try catch block to handle exceptions
+        try{
+            db.execSQL(sb.toString());
+        } catch (SQLException ex){
+            Log.e("BudgetSavingsTable", "Error creating table: " + ex.getMessage());
         }
 
     }

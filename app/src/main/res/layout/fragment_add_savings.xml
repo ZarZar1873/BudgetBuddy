@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddSavings">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/black_border"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <EditText
+                android:id="@+id/savingsAmountEditText"
+                android:layout_width="70dp"
+                android:layout_height="48dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/amount"
+                android:inputType="numberDecimal"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/savingsAmountText"
+                tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
+
+            <TextView
+                android:id="@+id/savingsAmountText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/amount"
+                app:layout_constraintEnd_toEndOf="@+id/savingsAmountEditText"
+                app:layout_constraintStart_toStartOf="@+id/savingsAmountEditText"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/savingsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/savings"
+                app:layout_constraintBottom_toTopOf="@+id/savingsNameEditText"
+                app:layout_constraintEnd_toEndOf="@+id/savingsNameEditText"
+                app:layout_constraintStart_toStartOf="@+id/savingsNameEditText" />
+
+            <EditText
+                android:id="@+id/savingsNameEditText"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/name_of_savings"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/savingsAmountEditText"
+                app:layout_constraintEnd_toStartOf="@+id/savingsAmountEditText"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="TextContrastCheck" />
+
+            <Button
+                android:id="@+id/savingsCancelButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/cancel"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/savingsAccountEditText"
+                tools:ignore="TextContrastCheck" />
+
+            <Button
+                android:id="@+id/savingsSaveButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/save"
+                android:textAllCaps="false"
+                app:layout_constraintEnd_toEndOf="@+id/savingsGoalDateEditText"
+                app:layout_constraintTop_toTopOf="@+id/savingsCancelButton"
+                tools:ignore="TextContrastCheck" />
+
+            <TextView
+                android:id="@+id/savingsGoalDateText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/goal_date"
+                app:layout_constraintBottom_toTopOf="@+id/savingsGoalDateEditText"
+                app:layout_constraintEnd_toEndOf="@+id/savingsGoalDateEditText"
+                app:layout_constraintStart_toStartOf="@+id/savingsGoalDateEditText" />
+
+            <EditText
+                android:id="@+id/savingsGoalDateEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/goal_date_text"
+                android:inputType="date"
+                android:minHeight="48dp"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/savingsAmountEditText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/savingsAmountEditText"
+                app:layout_constraintTop_toTopOf="@+id/savingsAmountEditText"
+                tools:ignore="DuplicateSpeakableTextCheck" />
+
+            <TextView
+                android:id="@+id/AddSavingsAccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/account"
+                app:layout_constraintEnd_toEndOf="@+id/savingsAccountEditText"
+                app:layout_constraintStart_toStartOf="@+id/savingsAccountEditText"
+                app:layout_constraintTop_toBottomOf="@+id/savingsNameEditText" />
+
+            <AutoCompleteTextView
+                android:id="@+id/savingsAccountEditText"
+                android:layout_width="105dp"
+                android:layout_height="48dp"
+                android:hint="@string/saving_paid_from"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/AddSavingsAccount" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

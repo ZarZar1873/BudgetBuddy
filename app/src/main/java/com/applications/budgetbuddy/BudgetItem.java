@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 @Author Dominic Drury
 Budget Item object class for managing budget items
  */
-public class BudgetItem {
+public class BudgetItem implements java.io.Serializable{
     public long _id;
 
     public String getBudgetName() {

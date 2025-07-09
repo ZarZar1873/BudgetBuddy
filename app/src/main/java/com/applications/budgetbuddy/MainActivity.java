@@ -31,7 +31,8 @@ Main activity that manages most of the app functionality. Relies heavily on frag
 listeners
  */
 public class MainActivity extends AppCompatActivity implements AddBudgetItem.AddBudgetItemListener,
-        AddBudget.AddBudgetListener, Calculate.CalculateListener, SettingsFragment.SettingsListener {
+        AddBudget.AddBudgetListener, Calculate.CalculateListener, SettingsFragment.SettingsListener,
+        Savings.OnSavingsFragmentCloseListener{
     String currentBudget;
     ArrayList<BudgetItem> budgetItems = new ArrayList<>();// Arraylist for storing budget items
     ArrayList<IncomeItem> incomeItems = new ArrayList<>(); // Arraylist for storing income items
@@ -173,6 +174,16 @@ public class MainActivity extends AppCompatActivity implements AddBudgetItem.Add
                     Income.newInstance(currentBudget), "income").commit();
         });
 
+        ImageButton savingsButton = findViewById(R.id.savingsButton);
+        savingsButton.setOnClickListener(v -> {
+            if (currentBudget == null) {
+                Toast.makeText(MainActivity.this, "No budget selected!", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            getSupportFragmentManager().beginTransaction().add(R.id.fragment_container,
+                    Savings.newInstance(currentBudget), "savings").commit();
+        });
+
         ImageButton settingsButton = findViewById(R.id.settings);
         settingsButton.setOnClickListener(v -> getSupportFragmentManager().beginTransaction()
                 .add(R.id.fragment_container,
@@ -299,6 +310,16 @@ public class MainActivity extends AppCompatActivity implements AddBudgetItem.Add
                 removeFragment();
             }
         });
+
+        getSupportFragmentManager().addOnBackStackChangedListener(() -> {
+            Fragment topFragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
+
+            // If Savings is gone (not the visible fragment), refresh budget
+            if (!(topFragment instanceof Savings)) {
+                loadBudgetRecyclerView();
+            }
+        });
+
     }
 
     @Override
@@ -365,6 +386,8 @@ public class MainActivity extends AppCompatActivity implements AddBudgetItem.Add
         } else {
             finish(); // If no fragment, exit activity
         }
+        loadBudgetRecyclerView();
+        loadBudgetPercentRecyclerView();
         setTotalTexts();
     }
 
@@ -420,42 +443,31 @@ public class MainActivity extends AppCompatActivity implements AddBudgetItem.Add
                 int adjustedPosition = position - 1; // Adjust for header row
                 BudgetItem budgetItem = budgetItems.get(adjustedPosition);
 
-                // Show Confirmation Dialog
                 new AlertDialog.Builder(this)
-                        .setTitle("Delete Item")
-                        .setMessage("Are you sure you want to delete this item?")
-                        .setPositiveButton("Yes", (dialog, which) -> {
-                            // Remove item from the database
-                            boolean deleted = budgetItemDatabaseManager.getBudgetItemDAO()
-                                    .delete(budgetItem.get_id());
+                        .setTitle("Edit / Delete")
+                        .setMessage("Please choose an action for this item.")
+                        .setPositiveButton("Edit", (dialog, which) -> {
+                            AddBudgetItem editFragment = AddBudgetItem.newInstance(currentBudget, budgetItem);
+                            getSupportFragmentManager().beginTransaction()
+                                    .add(R.id.fragment_container, editFragment, "editBill")
+                                    .commit();
+                        })
+                        .setNegativeButton("Delete", (dialog, which) -> {
+                            boolean deleted = budgetItemDatabaseManager.getBudgetItemDAO().delete(budgetItem.get_id());
                             if (deleted) {
-                                // Remove item from the list
                                 budgetItems.remove(adjustedPosition);
-
-                                // Notify adapter about the change
                                 budgetRecyclerViewAdapter.notifyItemRemoved(position);
-                                budgetRecyclerViewAdapter.notifyItemRangeChanged(position,
-                                        budgetItems.size());
-
-                                // Reloads budget view with new data
+                                budgetRecyclerViewAdapter.notifyItemRangeChanged(position, budgetItems.size());
                                 loadBudgetRecyclerView();
-                                // Reloads percent view with new data
                                 loadBudgetPercentRecyclerView();
-
-                                // Show Toast Confirmation
-                                Toast.makeText(MainActivity.this, "Item deleted",
-                                        Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainActivity.this, "Item deleted", Toast.LENGTH_SHORT).show();
                             } else {
-                                Toast.makeText(MainActivity.this,
-                                        "Failed to delete item!", Toast.LENGTH_SHORT)
-                                        .show();
+                                Toast.makeText(MainActivity.this, "Failed to delete item!", Toast.LENGTH_SHORT).show();
                             }
                         })
-                        .setNegativeButton("No", (dialog, which) -> {
-                            // User cancelled, do nothing
-                            dialog.dismiss();
-                        })
+                        .setNeutralButton("Cancel", (dialog, which) -> dialog.dismiss())
                         .show();
+
             }
         });
     }
@@ -615,5 +627,11 @@ public class MainActivity extends AppCompatActivity implements AddBudgetItem.Add
     public void onSignInWithGoogle() {
         // Placeholder for future Google sign-in
         Toast.makeText(this, "Google Sign-in not yet implemented", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onSavingsFragmentClosed() {
+        loadBudgetRecyclerView();
+        loadBudgetPercentRecyclerView();
     }
 }

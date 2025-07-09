@@ -92,4 +92,10 @@
     <string name="next_button">Next button</string>
     <string name="calculate_description">Calculates the money you have left after bills, showing your available spending balance before your next paycheck.</string>
     <string name="exit_tutorial">Exit Tutorial</string>
+    <string name="savings">Savings</string>
+    <string name="name_of_savings">Name of savings</string>
+    <string name="goal_date">Goal Date</string>
+    <string name="goal_date_text">Goal Date</string>
+    <string name="saving_paid_from">Saving paid from</string>
+    <string name="name">Name</string>
 </resources>

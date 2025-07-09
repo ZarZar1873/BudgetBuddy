@@ -58,7 +58,7 @@ public class AddIncome extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         EditText incomeNameEdit = view.findViewById(R.id.incomeSourceEditText);
-        EditText incomeAmountEdit = view.findViewById(R.id.incomeAmountEditText);
+        EditText incomeAmountEdit = view.findViewById(R.id.savingsAmountEditText);
         AutoCompleteTextView incomeFrequencyEdit = view.findViewById(R.id.incomeFrequencyEditText);
         Button incomeCancelButton = view.findViewById(R.id.cancelAddIncome);
         Button incomeSaveButton = view.findViewById(R.id.saveAddIncome);

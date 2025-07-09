@@ -16,7 +16,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/tutorial_add_budget" />
+        app:srcCompat="@drawable/main_screen_add_budget_button" />
 
     <ImageButton
         android:id="@+id/tutorialBackButton"

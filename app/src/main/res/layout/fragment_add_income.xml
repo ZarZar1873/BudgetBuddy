@@ -31,9 +31,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/amount"
-            app:layout_constraintBottom_toTopOf="@+id/incomeAmountEditText"
-            app:layout_constraintEnd_toEndOf="@+id/incomeAmountEditText"
-            app:layout_constraintStart_toStartOf="@+id/incomeAmountEditText" />
+            app:layout_constraintBottom_toTopOf="@+id/savingsAmountEditText"
+            app:layout_constraintEnd_toEndOf="@+id/savingsAmountEditText"
+            app:layout_constraintStart_toStartOf="@+id/savingsAmountEditText" />
 
         <TextView
             android:id="@+id/incomeFrequencyText"
@@ -55,12 +55,12 @@
             android:inputType="text"
             android:textColor="#000000"
             android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/incomeAmountEditText"
-            app:layout_constraintEnd_toStartOf="@+id/incomeAmountEditText"
+            app:layout_constraintBottom_toBottomOf="@+id/savingsAmountEditText"
+            app:layout_constraintEnd_toStartOf="@+id/savingsAmountEditText"
             tools:ignore="TextContrastCheck" />
 
         <EditText
-            android:id="@+id/incomeAmountEditText"
+            android:id="@+id/savingsAmountEditText"
             android:layout_width="70dp"
             android:layout_height="48dp"
             android:autofillHints=""
@@ -73,7 +73,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="TextContrastCheck" />
+            tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
 
         <AutoCompleteTextView
             android:id="@+id/incomeFrequencyEditText"
@@ -87,9 +87,9 @@
             android:inputType="none"
             android:textColor="#000000"
             android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/incomeAmountEditText"
+            app:layout_constraintBottom_toBottomOf="@+id/savingsAmountEditText"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/incomeAmountEditText"
+            app:layout_constraintStart_toEndOf="@+id/savingsAmountEditText"
             tools:ignore="TextContrastCheck" />
 
         <Button

@@ -20,16 +20,19 @@ Tutorial for first time launch of app and for future access through button in se
 public class Tutorial extends AppCompatActivity {
 
     private final int[] tutorialImages = {
-        R.drawable.tutorial_add_budget,
-        R.drawable.tutorial_delete,
-        R.drawable.tutorial_add_bill,
-        R.drawable.tutorial_calculate,
-        R.drawable.tutorial_add_income,
-        R.drawable.tutorial_settings,
-        R.drawable.tutorial_budget_dropdown,
-        R.drawable.tutorial_budget_recyclerview,
-        R.drawable.tutorial_totals,
-        R.drawable.tutorial_percentiles
+        R.drawable.main_screen_add_budget_button,
+        R.drawable.main_screen_budget_dropdown,
+        R.drawable.main_screen_delete_budget_button,
+        R.drawable.main_screen_add_bill_button,
+        R.drawable.main_screen_savings_button,
+        R.drawable.main_screen_calculate_button,
+        R.drawable.main_screen_income_button,
+        R.drawable.main_screen_settings_button,
+        R.drawable.main_screen_budget_recyclerview,
+        R.drawable.main_screen_totals_section,
+        R.drawable.main_screen_bill_type_percentiles,
+        R.drawable.savings_page_screen,
+        R.drawable.income_page_screen
     };
     private int currentIndex = 0;
 

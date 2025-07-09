@@ -10,7 +10,7 @@ Database helper for budget buddy that manages both budget items and income items
  */
 public class BudgetItemsDatabaseHelper extends SQLiteOpenHelper {
     final static String DATABASE_NAME = "BudgetItems.db";
-    final static int DATABASE_VERSION = 3;
+    final static int DATABASE_VERSION = 4;
 
     // Constructor
     public BudgetItemsDatabaseHelper(Context context){
