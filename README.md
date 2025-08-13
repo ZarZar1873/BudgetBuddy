@@ -8,7 +8,11 @@ Expense Calculation: Calculate your available spending money after accounting fo
 Simple User Interface: Designed to be user-friendly and minimal for quick access and ease of use.
 Manual Testing Focus: Thoroughly tested to ensure reliability and stability.
 
-![Add Budget Screen](Documents/Play_Store_Screenshots/main_screen_add_budget_button.png) | ![Select Budget Screen](Documents/Play_Store_Screenshots/main_screen_budget_dropdown.png) | ![Delete Budget Screen](Documents/Play_Store_Screenshots/main_screen_delete_budget_button.png)
+<img src="Documents/Play_Store_Screenshots/main_screen_add_budget_button.png" alt="Add Budget Screen" width="300"/> <img src="Documents/Play_Store_Screenshots/main_screen_budget_dropdown.png" alt="Select Budget Screen" width="300"/> <img src="Documents/Play_Store_Screenshots/main_screen_delete_budget_button.png" alt="Delete Budget Screen" width="300"/>
+<img src="Documents/Play_Store_Screenshots/main_screen_add_bill_button.png" alt="Add Bill Screen" width="300"/> <img src="Documents/Play_Store_Screenshots/main_screen_savings_button.png" alt="Savings Screen" width="300"/> <img src="Documents/Play_Store_Screenshots/main_screen_calculate_button.png" alt="Calculate Screen" width="300"/>
+<img src="Documents/Play_Store_Screenshots/main_screen_income_button.png" alt="Income Screen" width="300"/> <img src="Documents/Play_Store_Screenshots/main_screen_settings_button.png" alt="Settings Screen" width="300"/> <img src="Documents/Play_Store_Screenshots/main_screen_budget_recyclerview.png" alt="Budget Screen" width="300"/>
+<img src="Documents/Play_Store_Screenshots/main_screen_totals_section.png" alt="Totals Screen" width="300"/> <img src="Documents/Play_Store_Screenshots/main_screen_bill_type_percentiles.png" alt="Percentile Screen" width="300"/> <img src="Documents/Play_Store_Screenshots/savings_page_screen.png" alt="Savings Screen" width="300"/>
+<img src="Documents/Play_Store_Screenshots/income_page_screen.png" alt="Income Screen" width="300"/>
 
 Installation
 
