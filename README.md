@@ -8,8 +8,10 @@ Expense Calculation: Calculate your available spending money after accounting fo
 Simple User Interface: Designed to be user-friendly and minimal for quick access and ease of use.
 Manual Testing Focus: Thoroughly tested to ensure reliability and stability.
 
+[Main Budget Screen](Documents/Play_Store_Screenshots/main_screen_add_budget_button.png)
+
 Installation
-Download the app from the Google Play Store (link coming soon).
+
 
 Usage
 Open the app and tap the Add Budget button.
@@ -31,7 +33,7 @@ Testing Strategy: Manual testing across various Android devices and screen sizes
 Test Cases: Core functionality such as adding, deleting, and calculating budgets has been validated manually.
 
 Contributing
-At this time, Budget Buddy is in its closed testing phase. Stay tuned for updates!
+At this time, Budget Buddy is in its open testing phase. Stay tuned for updates!
 
 License
 Currently not licensed for public use. All rights reserved.
