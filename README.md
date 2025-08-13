@@ -8,7 +8,7 @@ Expense Calculation: Calculate your available spending money after accounting fo
 Simple User Interface: Designed to be user-friendly and minimal for quick access and ease of use.
 Manual Testing Focus: Thoroughly tested to ensure reliability and stability.
 
-![Main Budget Screen](Documents/Play_Store_Screenshots/main_screen_add_budget_button.png)
+![Add Budget Screen](Documents/Play_Store_Screenshots/main_screen_add_budget_button.png) | ![Select Budget Screen](Documents/Play_Store_Screenshots/main_screen_budget_dropdown.png) | ![Delete Budget Screen](Documents/Play_Store_Screenshots/main_screen_delete_budget_button.png)
 
 Installation
 
